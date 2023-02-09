@@ -1,0 +1,7 @@
+{
+  "name": "appArmijos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
