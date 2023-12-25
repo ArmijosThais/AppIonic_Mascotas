@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons mode="ios" slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios">Registro de Nuevas Mascotas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card mode="ios">
+    <ion-card-header>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content mode="ios">
+      <ion-item mode="ios">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="mascota.nombre"></ion-input>
+      </ion-item>
+      <ion-item mode="ios">
+        <ion-label position="floating">Raza</ion-label>
+        <ion-input [(ngModel)]="mascota.raza"></ion-input>
+      </ion-item >
+      <ion-item mode="ios">
+        <ion-label position="floating">Edad</ion-label>
+        <ion-input [(ngModel)]="mascota.edad"></ion-input>
+      </ion-item>
+      <ion-item mode="ios">
+        <ion-label position="floating">Imgen</ion-label>
+        <ion-input [(ngModel)]="mascota.urlImage"></ion-input>
+      </ion-item><br>
+      <ion-button mode="ios" color="primary" expand="full" (click)="registrarMascota(mascota)">Registrar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

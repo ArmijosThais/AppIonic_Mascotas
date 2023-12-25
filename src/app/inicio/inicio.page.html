@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title>Mascota en Adopción</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-menu mode="ios" contentId="main-content">
+    <ion-header>
+      <ion-toolbar mode="ios">
+        <ion-title mode="ios">Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content mode="ios" class="ion-padding">
+      <ion-menu-toggle mode="ios">
+        <ion-button mode="ios" routerLink="/inicio" expand="block">Inicio</ion-button>
+        <ion-button mode="ios" routerLink="/registro-mascota" expand="block">Regristro</ion-button>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header mode="ios">
+      <ion-toolbar mode="ios">
+        <ion-buttons mode="ios" slot="start">
+          <ion-menu-button mode="ios"></ion-menu-button>
+        </ion-buttons>
+        <ion-title mode="ios">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content mode="ios" class="ion-padding">
+      <div>
+        <img src="https://i.pinimg.com/736x/ff/02/28/ff02286a57584c55b4678453c411a6a4.jpg" alt="" style="margin-right: 15px; margin-left: 15px;">
+      </div>
+      <H1 style="text-align: center;">HUELLITAS FUNDACIÓN</H1>
+      <div>
+        <ion-segment value="default">
+          <ion-segment-button (click)="cargarMascotas()" value="default">
+            <ion-label>Todos</ion-label>
+          </ion-segment-button>
+          <ion-segment-button (click)="cargarPendientes()" value="segmentPend">
+            <ion-label>Pendientes</ion-label>
+          </ion-segment-button>
+          <ion-segment-button (click)="cargarApotadas()" value="segmentA">
+            <ion-label>Adoptados</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      <div>
+        <ion-card mode="ios" mode="ios" *ngFor="let mascota of mascotas">
+          <ion-card-header mode="ios">
+            <ion-card-title mode="ios">{{mascota.nombre}}</ion-card-title>
+            <ion-card-subtitle mode="ios">{{mascota.raza}}</ion-card-subtitle>
+          </ion-card-header>  
+          <ion-card-content mode="ios">
+            <img [src]="mascota.urlImage ? mascota.urlImage : 'https://www.asimetrica.org/wp-content/uploads/2019/03/no-imagen.jpg'" alt="">
+            <div>{{mascota.edad}}</div>
+            <ion-list >
+              <ion-item mode="ios">
+                <ion-select mode="ios" value="{{mascota.estado}}">
+                  <ion-select-option mode="ios" value="1" >Adoptado</ion-select-option>
+                  <ion-select-option mode="ios" value="0">Pendiente Adopción</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            <ion-button mode="ios" expand="block" color="primary" (click)="eliminarMascota(mascota)">Eliminar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      </ion-content>
+  </div>
+</ion-content>
